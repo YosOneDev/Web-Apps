@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/main_page.css">
+    <link rel="stylesheet" href="Css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>About</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <nav>
+                <a href="index.html" class="nav-link"><span class="icon">🏠</span> Home</a>
+                <!-- Dropdown Menu -->
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"><span class="icon">🔽</span> Теми</a>
+                    <div class="dropdown-menu">
+                        <a href="Classroom/exercise_one.html" class="dropdown-item">Упражнение 1</a>
+                        <a href="Classroom/exercise_two.html" class="dropdown-item">Упражнение 2</a>
+                        <a href="Classroom/exercise_three.html" class="dropdown-item">Упражнение 3</a>
+                        <a href="Classroom/exercise_four.html" class="dropdown-item">Упражнение 4</a>
+                        <a href="Classroom/exercise_five.html" class="dropdown-item">Упражнение 5</a>
+                        <!-- <a href="#" class="dropdown-item">Упражнение 6</a>
+                        <a href="#" class="dropdown-item">Упражнение 7</a>
+                        <a href="#" class="dropdown-item">Упражнение 8</a>
+                        <a href="#" class="dropdown-item">Упражнение 9</a>
+                        <a href="#" class="dropdown-item">Упражнение 10</a> -->
+                    </div>
+
+                </div>
+
+                <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+                <a href="#" class="nav-link" id="about-link"><span class="icon">ℹ️</span> About</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <button id="toggle-menu" class="toggle-btn">☰</button>
+            <div class="headerDiv">
+                <h1 style="margin: 0; padding-top: 4%;">Този сайт е направен с цел упражнение на HTML/CSS/JS <br> и помощ за подгатвяне за JAVA OOP изпит</h1>
+                <h2 class="disclaimers" style=" padding-bottom: 1%;">! Не съм преподавател и може да има някакви
+                    несъответстия ! <br> ! при тестовете и информацията ! <br> ! информацията взета за темите е от Classroom по дисциплина JAVA OOP!</h2>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/sidebar.js"></script>
+    <script src="Scripts/themeSwitcher.js"></script>
+</body>
+
+</html>

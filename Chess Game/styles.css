@@ -1,0 +1,261 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    margin-top: 2%;
+    background-color: #f0f0f0;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin-left: 200px;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    
+}
+
+.taken {
+    width: 120px;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.left-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -50px; /* Позиционираме числата отдясно */
+    top: 0;
+    height: 100%;
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+    position: absolute;
+    top: 100%; /* Позициониране на буквите точно под дъската */
+    left: 0;
+}
+
+.top-row .num {
+    font-size: 20px;
+    width: 60px; /* Размер на клетките */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left-numbers {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Подравняване нагоре */
+    align-items: center;
+    position: absolute;
+    right: -50px; /* Позиционираме числата отдясно */
+    top: 45px; /* Променете тази стойност за да преместите числата нагоре */
+    height: 100%;
+    
+}
+
+.left-numbers .num {
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Размер на клетките */
+    height: 60px;
+}
+
+
+
+.board-with-top-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 2px solid #000;
+    background-color: #fff;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+.cell:nth-child(even) {
+    background-color: #eee;
+}
+
+.cell:nth-child(odd) {
+    background-color: #999;
+}
+
+.cell[data-color="white"] {
+    background-color: #fff;
+}
+
+.cell[data-color="black"] {
+    background-color: #777;
+}
+
+.history {
+    margin-top: 20px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Подравняване нагоре */
+    align-items: left;
+    position: absolute;
+    left: 0px;
+    top: 0px; /* Променете тази стойност за да преместите числата нагоре */
+    height: 500px;
+    margin-left: 550px;
+    border: #000 2px solid;
+}
+
+.history ul {
+    font-size: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history li {
+    font-size: 25px;
+}
+
+#history {
+    max-height: 500px;  /* Ограничаваме височината на контейнера за историята */
+    overflow-y: auto;   /* Добавяме вертикален слайдбар при необходимост */
+    padding-right: 10px; /* За да има пространство за слайдбара */
+    padding-left: 10px;
+}
+
+.taken div {
+    min-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.taken div span {
+    font-size: 24px;
+}
+
+.taken.white{
+    width: 400px;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: #000 2px solid;
+    flex-direction: column;
+    top: -200px;
+    
+}
+.taken.black{
+    width: 400px;
+    border: #000 2px solid;
+    display: block;
+}
+
+#command {
+    margin-top: 50px;
+    text-align: center;
+    
+}
+
+#move-input {
+    width: 300px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+
+
+
+.selected-cell {
+    border: 3px solid blue; /* Синя рамка около избраната клетка */
+    background-color: rgba(0, 0, 255, 0.2); /* Лека синя фонова цветност, за по-добро визуализиране */
+}
+
+
+
+
+
+#takenContainers{
+    display: flex;
+    flex-direction: column; /* Това разполага дива в колона, т.е. един под друг */
+    gap: 110px; /* Разстояние между елементите */
+}
+
+#turn-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px; /* Разстояние между текста и дъската */
+}
+
+#turn {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.move-entry {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.move-number {
+    font-weight: bold;
+    margin-right: 5px; /* Разстояние между номера и изображението */
+    font-size: 20px;
+}
+
+.piece-image-history {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; /* Разстояние между изображението и текста */
+}

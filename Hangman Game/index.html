@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #F8E7F6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    #word {
+      font-size: 2rem;
+      letter-spacing: 0.5rem;
+      margin: 20px;
+    }
+
+    #letters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+      width: 400px;
+      height: 200px;
+      margin-left: auto;
+      margin-right: auto;
+      border: #333 3px solid;
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .letter {
+      background-color: #DD88CF;
+      color: white;
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .letter:hover {
+      background-color: #4B164C;
+    }
+
+    .letter.disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    #hangman {
+      margin: 20px auto;
+      width: 200px;
+      height: 300px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .part {
+      position: absolute;
+      background-color: #333;
+    }
+
+    .part.hidden {
+      display: none;
+    }
+
+    .head {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      top: 30px;
+      left: 80px;
+    }
+
+    .body {
+      width: 10px;
+      height: 80px;
+      top: 70px;
+      left: 95px;
+    }
+
+    .arm-left {
+      width: 10px;
+      height: 50px;
+      top: 70px;
+      left: 65px;
+      transform: rotate(45deg);
+    }
+
+    .arm-right {
+      width: 10px;
+      height: 50px;
+      top: 70px;
+      left: 115px;
+      transform: rotate(-45deg);
+    }
+
+    .leg-left {
+      width: 10px;
+      height: 50px;
+      top: 150px;
+      left: 75px;
+      transform: rotate(45deg);
+    }
+
+    .leg-right {
+      width: 10px;
+      height: 50px;
+      top: 150px;
+      left: 105px;
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+  <h1>Hangman Game</h1>
+  <div id="hangman">
+    <div class="part head hidden"></div>
+    <div class="part body hidden"></div>
+    <div class="part arm-left hidden"></div>
+    <div class="part arm-right hidden"></div>
+    <div class="part leg-left hidden"></div>
+    <div class="part leg-right hidden"></div>
+  </div>
+  <div id="word">_ _ _ _ _</div>
+  <div id="letters"></div>
+  <div id="message"></div>
+
+  <script>
+    const secretWord = "JAVASCRIPT"; // Можете да смените думата
+    const wordElement = document.getElementById("word");
+    const lettersElement = document.getElementById("letters");
+    const messageElement = document.getElementById("message");
+    const hangmanParts = document.querySelectorAll(".part");
+
+    let guessedWord = Array(secretWord.length).fill("_");
+    let mistakes = 0;
+    const maxMistakes = hangmanParts.length;
+
+    function updateWord() {
+      wordElement.textContent = guessedWord.join(" ");
+    }
+
+    function endGame(won) {
+      messageElement.textContent = won
+        ? "Поздравления! Спечелихте!"
+        : `Губите! Думата беше: ${secretWord}`;
+      Array.from(document.querySelectorAll(".letter")).forEach((btn) =>
+        btn.classList.add("disabled")
+      );
+    }
+
+    function handleGuess(event) {
+      const button = event.target;
+      const letter = button.textContent;
+      button.classList.add("disabled");
+
+      if (secretWord.includes(letter)) {
+        for (let i = 0; i < secretWord.length; i++) {
+          if (secretWord[i] === letter) {
+            guessedWord[i] = letter;
+          }
+        }
+        updateWord();
+        if (!guessedWord.includes("_")) {
+          endGame(true);
+        }
+      } else {
+        hangmanParts[mistakes].classList.remove("hidden");
+        mistakes++;
+        if (mistakes === maxMistakes) {
+          endGame(false);
+        }
+      }
+    }
+
+    function createLetterButtons() {
+      for (let i = 65; i <= 90; i++) {
+        const button = document.createElement("button");
+        button.textContent = String.fromCharCode(i);
+        button.classList.add("letter");
+        button.addEventListener("click", handleGuess);
+        lettersElement.appendChild(button);
+      }
+    }
+
+    updateWord();
+    createLetterButtons();
+  </script>
+</body>
+</html>

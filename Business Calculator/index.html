@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бизнес Калкулатор</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url("simple-background.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .calculator {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            border: #333 2px solid;
+            padding: 20px;
+            width: 450px;
+            height: auto;
+            margin: 50px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
+            align-items: center;
+        }
+
+        .calculator.opacity-faded {
+            opacity: 0.5;
+        }
+
+        .calculator input {
+            align-items: center;
+            width: 400px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .calculator button {
+            padding: 10px 15px;
+            margin: 10px 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .calculator button:hover {
+            background-color: #d3d3d3;
+            border: 2px solid black;
+        }
+
+        .calculator button:active {
+            background-color: #ccc;
+            border: 2px solid #666;
+        }
+
+        #month-fields{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .month-entry{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 600px) {
+            .calculator {
+                width: 90%;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator" onmouseleave="fadeOutCalculator()" onmouseenter="fadeInCalculator()">
+        <h2 style="text-align: center;">Бизнес Калкулатор</h2>
+        <div id="month-fields">
+            <div class="month-entry">
+                <input type="number" placeholder="Въведете Приходи" class="revenue">
+                <input type="number" placeholder="Въведете Разходи" class="expense">
+            </div>
+        </div>
+        <button onclick="addMonthFields()">Добави Месец</button>
+        <button onclick="calculateTax()">Изчисли Данък</button>
+        <button onclick="calculateProfit()">Изчисли Печалба</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function addMonthFields() {
+            const container = document.getElementById('month-fields');
+            const monthEntry = document.createElement('div');
+            monthEntry.className = 'month-entry';
+            monthEntry.innerHTML = `
+                <input type="number" placeholder="Въведете Приходи" class="revenue">
+                <input type="number" placeholder="Въведете Разходи" class="expense">
+            `;
+            container.appendChild(monthEntry);
+        }
+
+        function validateInputs(inputs) {
+            for (let input of inputs) {
+                if (isNaN(input.value) || input.value === '') {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function calculateTax() {
+            const revenues = document.querySelectorAll('.revenue');
+            const expenses = document.querySelectorAll('.expense');
+
+            if (!validateInputs([...revenues, ...expenses])) {
+                document.getElementById('result').innerText = 'Моля, въведете валидни числа!';
+                return;
+            }
+
+            let totalRevenue = 0;
+            let totalExpense = 0;
+
+            revenues.forEach(input => totalRevenue += parseFloat(input.value));
+            expenses.forEach(input => totalExpense += parseFloat(input.value));
+
+            const profit = totalRevenue - totalExpense;
+            const tax = profit > 0 ? profit * 0.2 : 0;
+            document.getElementById('result').innerText = `Данък: ${tax.toFixed(2)}`;
+        }
+
+        function calculateProfit() {
+            const revenues = document.querySelectorAll('.revenue');
+            const expenses = document.querySelectorAll('.expense');
+
+            if (!validateInputs([...revenues, ...expenses])) {
+                document.getElementById('result').innerText = 'Моля, въведете валидни числа!';
+                return;
+            }
+
+            let totalRevenue = 0;
+            let totalExpense = 0;
+
+            revenues.forEach(input => totalRevenue += parseFloat(input.value));
+            expenses.forEach(input => totalExpense += parseFloat(input.value));
+
+            const profit = totalRevenue - totalExpense;
+            const tax = profit > 0 ? profit * 0.2 : 0;
+            const netProfit = profit - tax;
+            document.getElementById('result').innerText = `Нетна Печалба: ${netProfit.toFixed(2)}`;
+        }
+
+        function fadeOutCalculator() {
+            document.querySelector('.calculator').classList.add('opacity-faded');
+        }
+
+        function fadeInCalculator() {
+            document.querySelector('.calculator').classList.remove('opacity-faded');
+        }
+    </script>
+</body>
+</html>

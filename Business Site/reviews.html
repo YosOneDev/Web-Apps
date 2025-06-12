@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <div class="navbar">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <a href="index.html">
+                    <rect width="40" height="40" rx="15" ry="15" fill="#45A29E"/>
+                    <text x="20%" y="20%" fill="white" font-size="9" font-family="Poppins" text-anchor="middle" alignment-baseline="middle">
+                        YosTech
+                    </text>
+                </a>
+            </svg>
+            <a href="index.html"><b id="yosTech">YosTech Studios</b></a>
+            <div class="dropdown">
+                <button class="dropbtn">About us</button>
+                <div class="dropdown-content">
+                    <a href="partners.html">Partners</a>
+                    <a href="development.html">Roadmap</a>
+                </div>
+            </div>
+            <a href="products.html">Products</a>
+            <a href="orders.html">Orders</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="job-possitions.html">Open Possitions</a>
+            <div class="dropdown">
+                <button class="dropbtn">About the CEO</button>
+                <div class="dropdown-content">
+                    <a href="movie.html">Favourite Movies</a>
+                    <a href="music.html">Favourite Music</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="reviewDiv" style="margin-left: 15%; margin-right: 15%;">
+        <h2 id="headerReview" style="color: aliceblue;">Write us a review</h2>
+        <form action="" id="reviewForm">
+            Name: <input type="text" name="name" placeholder="Enter your name" required><br>
+            E-mail<input type="email" name="email" placeholder="Enter your e-mail" required><br>
+            <br>
+
+            How do you rate our services?<br>
+            <select name="rating" required>
+                <option value="">Choose a grade from one to five</option>
+                <option value="excellent">5</option>
+                <option value="good">4</option>
+                <option value="average">3</option>
+                <option value="poor">2</option>
+                <option value="terrible">1</option>
+            </select>
+            <br><br>
+            What would you like us to improve?<br>
+            <input type="checkbox" name="improvements" value="quality">
+            Quality of services<br>
+            <input type="checkbox" name="improvements" value="support">
+            Customer support<br>
+            <input type="checkbox" name="improvements" value="speed">
+            Service speed<br>
+            <br>
+            Would you recommend us to friends?<br>
+            <input type="radio" name="recommend" value="yes" required>
+            Yes<br>
+            <input type="radio" name="recommend" value="no">
+            No<br>
+            <br>
+            Additional comments:
+            <textarea name="comments" placeholder="Your opinion" required></textarea>
+            <br><br>
+            <button type="submit">Send your opinion</button>
+        </form>
+    </div>
+</body>
+</html>

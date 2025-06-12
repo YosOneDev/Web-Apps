@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            border: 1px solid #000;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            margin: 5px 0;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .operations {
+            margin: 10px 0;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="num1" placeholder="Number 1">
+        <input type="text" id="num2" placeholder="Number 2">
+        <input type="text" id="result" placeholder="Result" readonly>
+
+        <div class="operations">
+            <label><input type="radio" name="operation" value="add"> Addition</label><br>
+            <label><input type="radio" name="operation" value="subtract"> Subtraction</label><br>
+            <label><input type="radio" name="operation" value="multiply"> Multiplication</label><br>
+            <label><input type="radio" name="operation" value="divide"> Division</label>
+        </div>
+
+        <button onclick="calculate()">Calculate</button>
+        <button onclick="clearFields()">Clear</button>
+    </div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const resultField = document.getElementById('result');
+            const operation = document.querySelector('input[name="operation"]:checked');
+
+            if (isNaN(num1) || isNaN(num2) || !operation) {
+                resultField.value = "Error";
+                return;
+            }
+
+            let result;
+            switch (operation.value) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    result = num2 !== 0 ? num1 / num2 : "Error";
+                    break;
+            }
+            resultField.value = result;
+        }
+
+        function clearFields() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('result').value = '';
+            document.querySelectorAll('input[name="operation"]').forEach(radio => radio.checked = false);
+        }
+    </script>
+</body>
+</html>

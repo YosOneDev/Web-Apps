@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Sustainability Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: url("Images/bgs/lake3.png");
+            transition: background-position 0.1s ease-out, background-size 0.1s ease-out;
+            transition: background-image 3s ease-in-out;
+            color: #333;
+            background-position: center;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .header .status {
+            font-size: 18px;
+            padding-right: 20px;
+        }
+
+        .game-container {
+            position: relative;
+            top: 100px;
+            text-align: center;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .popup img {
+            max-width: 200px;
+            height: 200px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .popup .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .environment-status {
+            font-size: 18px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.5s;
+        }
+
+        .excellent { 
+            background-color: #c8f7c5; color: #2e7d32; 
+            width: 50px;
+        }
+        .critical { 
+            background-color: #fbe4e4; color: #c62828; 
+        }
+        .stable { 
+            background-color: #e3fceb; color: #388e3c; 
+            width: 150px;   
+        }
+        .neutral { 
+            background-color: #B7B7B7; color: white; 
+            width: 50px;
+        }
+
+        #startButton {
+            display: block;
+            margin: 0 auto;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        #startButton:hover {
+            background-color: #45a049;
+        }
+        #environmentStatus {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px 25px;
+            border-radius: 5px;
+            text-align: center;
+            border: 2px solid;
+            font-weight: bold;
+            width: 80%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        #environmentStatus.excellent {
+            background-color: #c8f7c5;
+            color: #2e7d32;
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px 3px #2e7d32;
+        }
+
+        #environmentStatus.stable {
+            background-color: #e3fceb;
+            color: #388e3c;
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px 3px #388e3c;
+        }
+
+        #environmentStatus.neutral {
+            background-color: #B7B7B7;
+            color: #F5F5F7;
+            border-color: #333;
+            box-shadow: 0 0 10px 3px #B7B7B7;
+        }
+
+        #environmentStatus.critical {
+            background-color: #fbe4e4;
+            color: #c62828;
+            border-color: #e92c2c;
+            box-shadow: 0 0 10px 3px #c62828;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="status">
+            Time Left: <span id="timer">60</span>s
+        </div>
+        <div class="status" style="padding-left: 320px;">
+            Score: <span id="score">0</span>
+        </div>
+        <div class="status" id="environmentStatus">Environment: Neutral</div>
+    </div>
+
+    <div class="game-container">
+        <h1>Eco Sustainability Game</h1>
+        <p>Make the right choices to help the environment!</p>
+        <button class="button" id="startButton">Start Game</button>
+    </div>
+
+    <div class="popup" id="popup">
+        <p id="popupMessage"></p>
+        <img id="popupImage" src="" alt="Question Image">
+        <div class="button-container">
+            <button class="button" id="yesButton">Yes</button>
+            <button class="button" id="noButton">No</button>
+        </div>
+    </div>
+
+    <script>
+        const scoreElement = document.getElementById('score');
+        const timerElement = document.getElementById('timer');
+        const environmentStatusElement = document.getElementById('environmentStatus');
+        const startButton = document.getElementById('startButton');
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popupMessage');
+        const popupImage = document.getElementById('popupImage');
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const body = document.body;
+
+        let score = 0;
+        let currentQuestionIndex = 0;
+        let timeLeft = 60;
+        let timerInterval;
+        let isGameOver = false;
+
+        const backgrounds = [
+            'url("Images/bgs/greenHills.png")',
+            'url("Images/bgs/lake.png")',
+            'url("Images/bgs/lake2.png")',
+            'url("Images/bgs/lake3.png")'
+        ];
+
+        function cycleBackgrounds() {
+            let index = 0;
+            setInterval(() => {
+                body.style.backgroundImage = backgrounds[index];
+                index = (index + 1) % backgrounds.length;
+            }, 5000);
+        }
+
+        const questions = [
+            {
+                message: 'Recycle this plastic bottle. Will you do it?',
+                correct: true,
+                impact: 20,
+                penalty: 15,
+                image: 'Images/bottle.png'
+            },
+            {
+                message: 'Turn off the lights when leaving the room?',
+                correct: true,
+                impact: 10,
+                penalty: 5,
+                image: 'images/light-bulb-symbol.png'
+            },
+            {
+                message: 'Planting a tree helps reduce CO2. Will you plant one?',
+                correct: true,
+                impact: 30,
+                penalty: 25,
+                image: 'images/tree.png'
+            },
+            {
+                message: 'Throw waste in separated recycle bins. Is this good for the environment?',
+                correct: true,
+                impact: 15,
+                penalty: 10,
+                image: 'images/food_waste.png'
+            }
+        ];
+
+        function showPopup() {
+            if (currentQuestionIndex < questions.length && !isGameOver) {
+                const question = questions[currentQuestionIndex];
+                popupMessage.textContent = question.message;
+
+                if (question.image) {
+                    popupImage.src = question.image;
+                    popupImage.style.display = 'block';
+                } else {
+                    popupImage.style.display = 'none';
+                }
+
+                popup.style.display = 'block';
+
+                yesButton.onclick = () => handleAnswer(true);
+                noButton.onclick = () => handleAnswer(false);
+            } else {
+                endGame();
+            }
+        }
+
+        function closePopup() {
+            popup.style.display = 'none';
+        }
+
+
+        function handleAnswer(answer) {
+            if (isGameOver) return;
+
+            const question = questions[currentQuestionIndex];
+
+            if (answer === question.correct) {
+                score += question.impact;
+            } else {
+                score -= Math.abs(question.impact);
+            }
+
+            updateEnvironmentStatus();
+            scoreElement.textContent = score;
+
+            currentQuestionIndex++;
+
+            closePopup();
+
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(showPopup, 1000);
+            } else {
+                endGame();
+            }
+        }
+
+        function updateEnvironmentStatus() {
+            if (score >= 40) {
+                environmentStatusElement.textContent = 'Environment: Excellent';
+                environmentStatusElement.className = 'status excellent';
+            } else if (score >= 20) {
+                environmentStatusElement.textContent = 'Environment: Stable';
+                environmentStatusElement.className = 'status stable';
+            } else if (score >= 0) {
+                environmentStatusElement.textContent = 'Environment: Neutral';
+                environmentStatusElement.className = 'status neutral';
+            } else {
+                environmentStatusElement.textContent = 'Environment: Critical';
+                environmentStatusElement.className = 'status critical';
+            }
+        }
+
+        function endGame() {
+            isGameOver = true;
+            clearInterval(timerInterval);
+            popup.style.display = 'none';
+            alert(`Game Over! Your final score is ${score}.`);
+            resetGame();
+        }
+
+        function resetGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            timeLeft = 60;
+            scoreElement.textContent = score;
+            timerElement.textContent = timeLeft;
+            environmentStatusElement.textContent = 'Environment: Neutral';
+            environmentStatusElement.className = 'status neutral';
+            startButton.style.display = 'block';
+            startButton.style.margin = '0 auto';
+            isGameOver = false;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        startButton.addEventListener('click', () => {
+            startButton.style.display = 'none';
+            startTimer();
+            showPopup();
+        });
+
+        cycleBackgrounds();
+
+        document.addEventListener("mousemove", (e) => {
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 20; 
+            const scale = 1.05;
+
+            document.body.style.backgroundSize = `${scale * 100}%`;
+            document.body.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
+        });
+
+    </script>
+</body>
+</html>

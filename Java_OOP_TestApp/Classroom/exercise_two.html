@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/main_page.css">
+    <link rel="stylesheet" href="../Css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Упражнение 2</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <nav>
+                <a href="../index.html" class="nav-link"><span class="icon">🏠</span> Home</a>
+                <!-- Добави бутон за смяна на темата -->
+                <!-- Dropdown Menu for "Prеговор" -->
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"><span class="icon">🔽</span> Теми</a>
+                    <div class="dropdown-menu">
+                        <a href="exercise_one.html" class="dropdown-item">Упражнение 1</a>
+                        <a href="exercise_two.html" class="dropdown-item">Упражнение 2</a>
+                        <a href="exercise_three.html" class="dropdown-item">Упражнение 3</a>
+                        <a href="exercise_four.html" class="dropdown-item">Упражнение 4</a>
+                        <a href="exercise_five.html" class="dropdown-item">Упражнение 5</a>
+                        <!-- <a href="#" class="dropdown-item">Упражнение 6</a>
+                        <a href="#" class="dropdown-item">Упражнение 7</a>
+                        <a href="#" class="dropdown-item">Упражнение 8</a>
+                        <a href="#" class="dropdown-item">Упражнение 9</a>
+                        <a href="#" class="dropdown-item">Упражнение 10</a> -->
+                    </div>
+
+                </div>
+
+                <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+                <a href="../about.html" class="nav-link" id="about-link"><span class="icon">ℹ️</span> About</a>
+            </nav>
+
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <button id="toggle-menu" class="toggle-btn">☰</button>
+
+            <h1 style="text-align: center;">Упражнение № 2</h1>
+
+            <hr class="dottedBorder"
+                style="border-style: dotted; width: 100px; border-top-width: 20px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; margin-top: 5%;">
+
+            <div class="revisionInfoDiv" style="width: 70%;">
+
+                <span class="mainContentRev">
+
+                    <h2 style="text-align: center; margin-bottom: 80px;"> Въведение в ООП</h2>
+
+                    <ul>
+                        <li> <b>Клас:</b> </li>
+                        <ul>
+                            <br>
+                            <li> Класът е шаблон за създаване на обекти.</li>
+                            <li> Всеки клас може да съдържа полета и методи.</li>
+                            <li> Обектите са реалните екземпляри на класа.</li>
+                            <li> Конструкторите инициализират обекти при създаването им.</li>
+                            <li> Инкапсулацията защитава данните чрез private полета и getter/setter методи.</li>
+                            <br>
+                        </ul>
+                        <li> <b>Атрибути: </b> </li>
+                        <ul>
+                            <br>
+                            Атрибутите (или полета) в Java са променливи, които се намират в рамките на един клас и
+                            описват състоянието на обектите.
+                            Те съдържат данни, свързани с обекта, и могат да имат различни нива на достъп.
+
+                        </ul>
+                        <br>
+                        <li> <b>Обект:</b> </li>
+                        <ul>
+                            <br>
+                            <li>Обект е конкретен екземпляр на даден клас.</li>
+                            <li>Обектите се създават с new и могат да имат различни стойности.</li>
+                            <li>Конструкторите помагат за инициализацията на обекти.</li>
+                            <li>Можем да създаваме множество обекти от един клас.</li>
+                            <h3 style="text-align: center;">Разлика между клас и обект</h3>
+                            <img src="../Images/Exercises/diff_class.png" alt="Class vs Object"
+                                style="margin-left: auto; margin-right: auto; display: block; border-radius: 15px;">
+                        </ul>
+                        <br>
+                        <li> <b>Статични (static) и нестатични (non-static) членове на клас</b> </li>
+                        <ul>
+                            <br>
+                            <li>Статичните (static) полета и методи са свързани с класовете, а не с конкретен обект от
+                                даден клас.
+                                Използват се без да има създадена инстанция/обект на класа.
+                                Статично поле или метод се дефинира с ключовата дума static (public static String
+                                helloWorld = "Hello World!";).
+                                Статичните полета се инстанцират, когато класът се използва за първи път по време на
+                                изпълнение на програмата.
+                            </li>
+                            <br>
+                            <li>
+                                Нестатичните (non-static) полета и методи са свързани с обект от даден клас.
+                                Следователно, нестатичните членове на клас се извикват с помощта на създаването на
+                                обект.
+                                По подразбиране всички променливи и методи са non-static.
+                            </li>
+                        </ul>
+                        <br>
+                        <li> <b>Пакети (packages)</b> </li>
+                        <ul>
+                            <br>
+                            <li>
+                                Пакетите позволяват на разработчиците да групират своите класове на база определени
+                                критерии.
+                            </li>
+                        </ul>
+                    </ul>
+                </span>
+            </div>
+
+            <div style="height: 200px;"></div>
+
+        </div>
+
+    </div>
+
+    <script src="../Scripts/sidebar.js"></script>
+    <script src="../Scripts/themeSwitcher.js"></script>
+</body>
+
+</html>

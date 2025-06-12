@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Попълване на празнини</title>
+    <link rel="stylesheet" href="../Styles/styleTaskTwo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Modak&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../Favicon/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="../Pages/index.html">Подреди думите</a></li>
+            <li><a href="../Pages/taskTwo.html">Попълни празнините</a></li>
+            <li><a href="../Pages/taskThree.html">Открий фигурата</a></li>
+            <li><a href="../Pages/taskFour.html">Числов въпрос</a></li>
+            <li><a href="../Pages/taskFive.html">Маркирай отговорът</a></li>
+            <li><a href="../Pages/taskSix.html">Маркирай отговорите</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Попълни празните места</h1>
+        <p>Влачете правилната дума и я поставете в празните места.</p>
+
+        <div id="gap-exercise">
+            <p>
+                Аз <span class="gap" id="gap-1"></span> футбол всеки ден.
+            </p>
+            <p>
+                Този <span class="gap" id="gap-2"></span> е направен с JavaScript.
+            </p>
+            <div class="options-container">
+                <span class="draggable" draggable="true">играя</span>
+                <span class="draggable" draggable="true">сайт</span>
+                <span class="draggable" draggable="true">четене</span>
+            </div>
+            <button id="checkGaps">Провери</button>
+            <div id="gapResult"></div>
+        </div>
+    </div>
+    <script src="../Scripts/scriptTaskTwo.js"></script>
+</body>
+</html>

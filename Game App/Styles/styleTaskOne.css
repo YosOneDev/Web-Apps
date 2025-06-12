@@ -1,0 +1,129 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #C2FFC7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #4caf50;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #45a049;
+}
+
+
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 700px;
+}
+
+h1 {
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+#instructions {
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+.sentence-block {
+    margin-bottom: 20px;
+}
+
+.droppable-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 500px;
+    padding: 5px;
+    gap: 5px;
+}
+
+.draggable-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px auto;
+}
+
+.draggable {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: grab;
+    text-align: center;
+    user-select: none;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+#checkOrder {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#checkOrder:hover {
+    background-color: #45a049;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}

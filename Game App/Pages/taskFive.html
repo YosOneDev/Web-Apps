@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Множествен избор</title>
+    <link rel="stylesheet" href="../Styles/styleTaskFive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Modak&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../Favicon/favicon.ico">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="../Pages/index.html">Подреди думите</a></li>
+            <li><a href="../Pages/taskTwo.html">Попълни празнините</a></li>
+            <li><a href="../Pages/taskThree.html">Открий фигурата</a></li>
+            <li><a href="../Pages/taskFour.html">Числов въпрос</a></li>
+            <li><a href="../Pages/taskFive.html">Маркирай отговорът</a></li>
+            <li><a href="../Pages/taskSix.html">Маркирай отговорите</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Множествен избор</h1>
+        <p>Кой е основният език за уеб разработка?</p>
+
+        <form id="multiple-choice-form">
+            <label>
+                <input type="radio" name="answer" value="HTML"> HTML
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="JavaScript"> JavaScript
+            </label><br>
+            <label>
+                <input type="radio" name="answer" value="CSS"> CSS
+            </label><br><br>
+            
+            <button type="submit">Изпрати</button>
+        </form>
+
+        <div id="feedback"></div>
+    </div>
+
+    <script src="../Scripts/scriptTaskFive.js"></script>
+</body>
+</html>

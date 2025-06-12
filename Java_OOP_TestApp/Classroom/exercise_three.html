@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/main_page.css">
+    <link rel="stylesheet" href="../Css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Упражнение 3</title>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+          <nav>
+            <a href="../index.html" class="nav-link"><span class="icon">🏠</span> Home</a>
+                        <!-- Добави бутон за смяна на темата -->
+                        <!-- Dropdown Menu for "Prеговор" -->
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle"><span class="icon">🔽</span> Теми</a>
+                    <div class="dropdown-menu">
+                        <a href="exercise_one.html" class="dropdown-item">Упражнение 1</a>
+                        <a href="exercise_two.html" class="dropdown-item">Упражнение 2</a>
+                        <a href="exercise_three.html" class="dropdown-item">Упражнение 3</a>
+                        <a href="exercise_four.html" class="dropdown-item">Упражнение 4</a>
+                        <a href="exercise_five.html" class="dropdown-item">Упражнение 5</a>
+                        <!-- <a href="#" class="dropdown-item">Упражнение 6</a>
+                        <a href="#" class="dropdown-item">Упражнение 7</a>
+                        <a href="#" class="dropdown-item">Упражнение 8</a>
+                        <a href="#" class="dropdown-item">Упражнение 9</a>
+                        <a href="#" class="dropdown-item">Упражнение 10</a> -->
+                        </div>
+                            
+                    </div>
+            
+                <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+                <a href="../about.html" class="nav-link" id="about-link"><span class="icon">ℹ️</span> About</a>
+            </nav>
+
+          </nav>
+        </div>
+
+                <!-- Main Content -->
+        <div class="main-content">
+            <button id="toggle-menu" class="toggle-btn">☰</button>
+        
+            <h1 style="text-align: center;">Упражнение № 3</h1>
+        
+            <hr class="dottedBorder" style="border-style: dotted; width: 100px; border-top-width: 20px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; margin-top: 5%;">
+        
+            <div class="revisionInfoDiv" style="width: 70%;">
+        
+                <span class="mainContentRev">
+        
+                    <h2 style="text-align: center; margin-bottom: 80px;"> ООП (част 1)</h2>
+
+                    <ul>
+                        <li> <b>Принципи на ООП:</b> </li>
+                        <br>
+                        <ul>
+                            <li>абстракция</li>
+                            <li>капсулация</li>
+                            <li>наследяване</li>
+                            <li>полиморфизъм</li>
+                        </ul>
+                        <br>
+                        <li> <b>Наследяване на класове:</b> </li>
+                        <br>
+                        <ul>
+                            <li>Не е възможно множествено наследяване с класове в Java
+                                (един клас може да има само един клас-родител - single inheritance).
+                                Йерархия от класове и преизползване на код.
+                            </li>
+                        </ul>
+                        <br>
+                        <li> <b>Ключови думи:</b> </li>
+                        <br>
+                        <ul>
+                            <li> <b>extends</b> </li>
+                            <ul>
+                                <br>
+                                <li>
+                                    Използва се за наследяване между класове. 
+                                    Това означава, че един клас (подклас) може да наследи характеристиките и поведението (атрибути и методи) на друг клас (родителски клас или суперклас). 
+                                    <br><br>
+                                    📌 Основна идея: Подкласът разширява (extends) родителския клас, като добавя нови или променя съществуващи методи.
+                                </li>
+                            </ul>
+                            <br>
+                            <li> <b>super</b> </li>
+                            <ul>
+                                <br>
+                                <li>
+                                    Ключовата дума super позволява на подклас да извиква конструкторите и методите на родителския клас.
+                                </li>
+                            </ul>
+                            <br>
+                            <li> <b>this</b> </li>
+                            <ul>
+                                <br>
+                                <li>
+                                    this реферира текущия обект в класа
+                                </li>
+                                <li>Позволява method chaining, като връща текущия обект</li>
+                                <li>this() извиква друг конструктор в същия клас</li>
+
+                                <h3 style="text-align: center;">Разлика между this и super</h3>
+                                <img src="../Images/Exercises/This_vs_Super.png" alt="This vs Super" style="margin-left: auto; margin-right: auto; display: block; border-radius: 15px;">
+                            </ul>
+                        </ul>
+                            <br>
+                            <li> <b>Object</b> </li>
+                            <br>
+                            <ul>
+                                <li>📌 Object е родителският клас на всички класове в Java.</li>
+                                <li>📌 Всички класове автоматично наследяват Object.</li>
+                                <li>📌 Това осигурява основни методи, които могат да бъдат предефинирани.</li>
+
+                                <h3 style="text-align: center;">Основни методи в Object</h3>
+                                <img src="../Images/Exercises/Object.png" alt="Object" style="margin-left: auto; margin-right: auto; display: block; border-radius: 15px;">
+                            </ul>
+                            <br>
+                            <li> <b>Капсулация:</b> </li>
+                            <br>
+                            <ul>
+                                <li> Скриване на детайлите на класовете, посредством модификатори за достъп.</li>
+                            </ul>
+                            <br>
+                            <li> <b>Модификатори за достъп:</b> </li>
+                            <br>
+                            <ul>
+                                <li>public</li>
+                                <li>private</li>
+                                <li>protected</li>
+                                <li>package</li>
+                                <li>default</li>
+                            </ul>
+                            <br>
+                            <li> <b>Абстракция:</b> </li>
+                            <br>
+                            <ul>
+                                <li> Игнорираме детайлите и виждаме само това което ни интересува.</li>
+                            </ul>
+                            <br>
+                            <li> <b>Полиморфизъм:</b> </li>
+                            <br>
+                            <ul>
+                                <li> Дефинира как се работи по еднакъв начин с различни обекти, които дефинират 
+                                     специфична имплементация на абстрактно поведение (override и overload).
+                                </li>
+                            </ul>
+                            <br>
+                            <li> <b>Пренаписване на методи (Override):</b> </li>
+                            <br>
+                            <ul>
+                                <li> Отбелязва се с анотация @Override преди дефиницията на метода. 
+                                    Наследените от базовия (родителски) клас методи могат да се пренаписват. 
+                                    Това означава да се подмени имплементацията, като оригиналният код от базовия 
+                                    клас се игнорира за сметка на пренаписания нов код. В това се изразява, така нареченият, полиморфизъм.
+                                </li>
+                            </ul>
+                            <br>
+                            <li> <b>Варианти на методи (Overload):</b> </li>
+                            <br>
+                            <ul>
+                                <li> Когато декларираме един метод, чието име съвпада с името на друг метод, 
+                                     но сигнатурите на двата метода са различни по списъка на параметрите (броят или подредбата им), 
+                                     казваме че имаме различни варианти на този метод (overload); Пример за overload са конструкторите на класовете.
+                                </li>
+                            </ul>
+                    </ul>
+                </span>
+            </div>
+
+            <div style="height: 200px;"></div>
+
+        </div>
+
+    </div>
+
+    <script src="../Scripts/sidebar.js"></script>
+    <script src="../Scripts/themeSwitcher.js"></script>
+</body>
+</html>

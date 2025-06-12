@@ -1,0 +1,127 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #C2FFC7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #4caf50;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #45a049;
+}
+
+
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    margin: 15px 0;
+}
+
+.gap {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    border-bottom: 2px dashed #cccccc;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 5px;
+    color: #555555;
+}
+
+.options-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.draggable {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: grab;
+    text-align: center;
+    user-select: none;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+.gap-filled {
+    color: #000000;
+    font-weight: bold;
+}
+
+#checkGaps {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#checkGaps:hover {
+    background-color: #45a049;
+}
+
+#gapResult {
+    margin-top: 20px;
+    font-weight: bold;
+}

@@ -1,0 +1,140 @@
+body{
+    background-color: #1F2833;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+  margin: 0;
+  padding: 0;
+
+}
+
+#yosTech{
+    color: #45A29E;
+    margin-left: 90px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #0B0C10;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: #C5C6C7;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+  .navbar a:hover {
+    background: #1F2833;
+    color: #66FCF1;
+    text-decoration: underline;
+  }
+  
+
+  .main {
+    margin-top: 30px;
+  }
+
+  #headerForm{
+    margin-top: 0px;
+    padding-top: 70px;
+    text-align: center;
+  }
+  #orderFormDiv{
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    width: 70%;
+    background-color: #243642;
+  }
+  #orderForm{
+    font-size: 20px;
+    color: #66FCF1;
+    padding-left: 30%;
+  }
+  #reviewDiv{
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    width: 70%;
+    background-color: #243642;
+  }
+  #reviewForm{
+    font-size: 20px;
+    color: #66FCF1;
+    padding-left: 30%;
+  }
+  #headerReview{
+    margin-top: 0px;
+    padding-top: 70px;
+    text-align: center;
+  }
+
+  .logo{
+    top: 4px;
+    display: flex;
+    align-items: center;
+    width: 180px;
+    height: 170px;
+    position: absolute;
+  }
+  .dropbtn {
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    padding: 20px 20px;
+    font-size: 22px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .dropdown {
+    position: inherit;
+    float: left;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    color: #C5C6C7;
+    width: 133px;
+    height: 51px;
+    z-index: 11;
+  }
+  .dropdown-content a {
+    border: #66FCF1;
+    border-style: inset;
+    color:#45A29E;
+    padding: 20px 20px;
+    width: 110px;
+    height: 51px;
+    color: #C5C6C7;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {
+    background: #1F2833;
+    color: #66FCF1;
+    text-decoration: underline;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropbtn {
+    background: #1F2833;
+    color: #66FCF1;
+    text-decoration: underline;
+  }

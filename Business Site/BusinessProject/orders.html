@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <div class="navbar">
+            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <a href="index.html">
+                    <rect width="40" height="40" rx="15" ry="15" fill="#45A29E"/>
+                    <text x="20%" y="20%" fill="white" font-size="9" font-family="Poppins" text-anchor="middle" alignment-baseline="middle">
+                        YosTech
+                    </text>
+                </a>
+            </svg>
+            <a href="index.html"><b id="yosTech">YosTech Studios</b></a>
+            <div class="dropdown">
+                <button class="dropbtn">About us</button>
+                <div class="dropdown-content">
+                    <a href="partners.html">Partners</a>
+                    <a href="development.html">Roadmap</a>
+                </div>
+            </div>
+            <a href="products.html">Products</a>
+            <a href="orders.html">Orders</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="job-possitions.html">Open Possitions</a>
+            <div class="dropdown">
+                <button class="dropbtn">About the CEO</button>
+                <div class="dropdown-content">
+                    <a href="movie.html">Favourite Movies</a>
+                    <a href="music.html">Favourite Music</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="orderFormDiv" style="margin-left: 15%; margin-right: 15%;">
+        <h2 id ="headerForm" style="color: aliceblue;">Make an order</h2>
+        <form action="" id="orderForm">
+            Name: <input type="text" name="firstname"><br>
+            Last Name: <input type="text" name="lastname"><br>
+            E-mail: <input type="email" name="email"><br>
+            Phone: <input type="tel" name="phone"><br>
+            Choose a product: <select name="product">
+                <option value="" disabled selected>Pick a product</option>
+                <option value="product1">Microsoft Office</option>
+                <option value="product2">Windows 11 OS</option>
+                <option value="product3">Mac OS</option>
+                <option value="product4">Adobe Photoshop</option>
+                <option value="product5">Steam</option>
+            </select>
+            <br>
+            Address: <textarea name="address"></textarea><br>
+            Choose a delivery option <select name="delivery">
+                <option value="" disabled selected>Delivery Options</option>
+                <option value="standart">Standart (3 - 5 working days)</option>
+                <option value="express">Express (1 - 2 working days)</option>
+            </select>
+            <br>
+            <input type="submit" value="Order">
+        </form>
+    </div>
+</body>
+</html>

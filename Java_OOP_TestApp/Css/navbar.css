@@ -1,0 +1,323 @@
+/* General Styles */
+body {
+  margin: 0;
+  overflow-x: hidden;
+  /* Remove horizontal scrollbars */
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  /* Sidebar hidden by default */
+  transition: transform 0.3s ease-in-out;
+  /* Smooth slide effect */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+  z-index: 100;
+  /* Ensure sidebar is above content */
+}
+
+.sidebar.active {
+  transform: translateX(0);
+  /* Sidebar fully visible */
+}
+
+/* Sidebar Content */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Разстояние между линковете */
+  margin-top: 60px;
+  /* Добавяме разстояние отгоре */
+}
+
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #f0f0f0;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  margin-left: 0;
+  /* Default without sidebar */
+  padding: 20px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.sidebar-active {
+  margin-left: 250px;
+  /* Adjust for sidebar width */
+}
+
+/* Toggle Button */
+.toggle-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 101;
+  /* Ensure button is above everything */
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
+.parentDiv {
+  display: flex;
+  justify-content: center;
+  /* Центрира по хоризонтала */
+  align-items: center;
+  /* Центрира по вертикала */
+  width: 100%;
+  /* Родителя трябва да заема цялата ширина */
+  gap: 20px;
+}
+
+.resourceDiv {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border-radius: 20%;
+  margin-top: 5%;
+  margin-right: auto;
+  align-items: center;
+  align-content: center;
+}
+
+
+/* Стилове за бяла тема */
+body.light-theme {
+  background-color: #ffffff;
+  color: #0d0d0d;
+}
+
+/* Стилове за тъмна тема */
+body.dark-theme {
+  background-color: #212121;
+  color: #ececec;
+}
+
+.theme-toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Стилове за бялата тема (светла тема) */
+body.light-theme #sidebar {
+  background-color: #f9f9f9;
+  /* Светъл фон */
+  color: #0d0d0d;
+}
+
+body.light-theme .nav-link {
+  color: black;
+}
+
+body.light-theme .nav-link:hover {
+  background-color: #ddd;
+}
+
+/* Стилове за тъмната тема */
+body.dark-theme #sidebar {
+  background-color: #171717;
+  /* Тъмен фон */
+  color: #ececec;
+}
+
+body.dark-theme .nav-link {
+  color: white;
+}
+
+body.dark-theme .nav-link:hover {
+  background-color: #555;
+}
+
+body.dark-theme .disclaimers {
+  color: #b4b4b4;
+}
+
+body.light-theme .disclaimers {
+  color: #5d5d5d;
+}
+
+body.dark-theme .dottedBorder {
+  color: #b4b4b4;
+}
+
+body.light-theme .dottedBorder {
+  color: #5d5d5d;
+}
+
+body.light-theme .resourceDiv {
+  background-color: #e9e9e9;
+}
+
+body.dark-theme .resourceDiv {
+  background-color: #171717;
+}
+
+
+
+/* Стил за падащото меню */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: inherit;
+  /* За да наследи цветът от родителския елемент */
+  transition: color 0.3s ease;
+}
+
+
+
+.dropdown-item {
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  transition: background-color 0.3s ease;
+  width: 230px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+/* .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  height: auto;
+  transition: height 0.3s ease-in-out;
+  z-index: 1;
+  border-radius: 5px;
+} */
+
+/* Стил за падащото меню */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  max-height: 0;
+  /* Начално е затворено */
+  opacity: 0;
+  /* Скрито е */
+  transition: max-height 0.5s ease-in-out, opacity 0.9s ease-in-out;
+  /* Бавна анимация */
+  overflow: hidden;
+  /* Скрива излишното съдържание */
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown.open .dropdown-menu {
+  max-height: 600px;
+  /* Максимална височина, достатъчна за всички елементи */
+  opacity: 1;
+  /* Видимо е */
+}
+
+/* Позиция за бутона "About" */
+#about-link {
+  transition: transform 0.4s ease-in-out;
+  /* Плавно движение за 1 секунда */
+}
+
+/* За състоянието, когато менюто е отворено */
+.dropdown.open #about-link {
+  transform: translateY(480px);
+  /* Премества бутона надолу */
+}
+
+
+
+
+
+.dropdown.open .dropdown-menu {
+  display: block;
+  /* Менюто ще се покаже, когато е кликнато */
+  max-height: 500px;
+  /* Може да се увеличи, ако имате повече елементи */
+  opacity: 1;
+  /* Видимо е */
+  /* max-height: none; */
+}
+
+body.dark-theme .dropdown-item:hover {
+  background-color: #555;
+}
+
+body.light-theme .dropdown-item:hover {
+  background-color: #ddd;
+}
+
+body.light-theme .dropdown-menu {
+  background-color: #f9f9f9;
+  /* Светъл фон за светла тема */
+}
+
+body.dark-theme .dropdown-menu {
+  background-color: #333;
+  /* Тъмен фон за тъмна тема */
+}
+
+body.light-theme .dropdown-item {
+  color: #333;
+}
+
+body.dark-theme .dropdown-item {
+  color: #ececec;
+}

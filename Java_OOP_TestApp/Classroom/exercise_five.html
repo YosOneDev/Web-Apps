@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/main_page.css">
+    <link rel="stylesheet" href="../Css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Упражнение 2</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <nav>
+                <a href="../index.html" class="nav-link"><span class="icon">🏠</span> Home</a>
+                <!-- Добави бутон за смяна на темата -->
+                <!-- Dropdown Menu for "Prеговор" -->
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"><span class="icon">🔽</span> Теми</a>
+                    <div class="dropdown-menu">
+                        <a href="exercise_one.html" class="dropdown-item">Упражнение 1</a>
+                        <a href="exercise_two.html" class="dropdown-item">Упражнение 2</a>
+                        <a href="exercise_three.html" class="dropdown-item">Упражнение 3</a>
+                        <a href="exercise_four.html" class="dropdown-item">Упражнение 4</a>
+                        <a href="exercise_five.html" class="dropdown-item">Упражнение 5</a>
+                        <!-- <a href="#" class="dropdown-item">Упражнение 6</a>
+                        <a href="#" class="dropdown-item">Упражнение 7</a>
+                        <a href="#" class="dropdown-item">Упражнение 8</a>
+                        <a href="#" class="dropdown-item">Упражнение 9</a>
+                        <a href="#" class="dropdown-item">Упражнение 10</a> -->
+                    </div>
+
+                </div>
+
+                <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+                <a href="../about.html" class="nav-link" id="about-link"><span class="icon">ℹ️</span> About</a>
+            </nav>
+
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <button id="toggle-menu" class="toggle-btn">☰</button>
+
+            <h1 style="text-align: center;">Упражнение № 5</h1>
+
+            <hr class="dottedBorder"
+                style="border-style: dotted; width: 100px; border-top-width: 20px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; margin-top: 5%;">
+
+            <div class="revisionInfoDiv" style="width: 70%;">
+
+                <span class="mainContentRev">
+
+                    <h2 style="text-align: center; margin-bottom: 80px;"> ООП (част 3) </h2>
+
+                    <ul>
+
+                        <li> <b>Композиция</b> </li>
+                        <br>
+                        <ul>
+                            <li>Създаването на обект в контекста на даден друг клас (добавяне на полета от референтен
+                                тип). Употребата на композиция е честа, например, винаги когато добавяме полета от тип
+                                String, Integer, ArrayList и др. Дава лесен начин за преизползване на код. Композицията
+                                е едно от решенията за справяне с множественото наследяване с класове в Java.
+                            </li>
+                        </ul>
+                        <br>
+
+                        <li> <b>Композиция vs. Наследяване</b> </li>
+                        <br>
+                        <ul>
+                            <img src="../Images/Exercises/composition_vs_inheritance.png"
+                                alt="composition vs inheritance "
+                                style="margin-left: auto; margin-right: auto; display: block; border-radius: 15px;">
+                        </ul>
+                        <br>
+
+                        <li> <b>Enumeration (Изброен тип)</b> </li>
+                        <br>
+                        <ul>
+                            <li>Конструкция, наподобяваща клас, в която можем да декларираме само логически свързани
+                                константи.</li>
+                        </ul>
+                        <br>
+
+                        <li> <b>Вътрешни класове</b> </li>
+                        <br>
+                        <ul>
+                            <li>Езикът Java позволява създаването на дефиниции на класове вътре в други класове.
+                                Позволява се логическото им групиране и контролиране на видимостта. Вътрешните класове
+                                могат да достъпват полета и методи от обгръщащия ги клас, тъй като неявно съдържат
+                                референция към него. Вътрешните класове не могат да съдържат статични полета, класове
+                                или методи.
+                            </li>
+                        </ul>
+                        <br>
+
+                        <li> <b>Статични вложени класове</b> </li>
+                        <br>
+                        <ul>
+                            <li>Не е необходимо съдържащият клас на вътрешни класове да бъде инстанциран, за да се
+                                използват. Имат директен достъп до статичните полета и методи на съдържателя, а ако
+                                разполагат с негова инстанция могат да използват и нестатичните му ресурси. Не
+                                притежават неявна референция към външния клас, който ги обгръща.
+                            </li>
+                        </ul>
+                        <br>
+                    </ul>
+                </span>
+            </div>
+
+            <div style="height: 200px;"></div>
+
+        </div>
+
+    </div>
+
+    <script src="../Scripts/sidebar.js"></script>
+    <script src="../Scripts/themeSwitcher.js"></script>
+</body>
+
+</html>

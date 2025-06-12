@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", serif;
+
+}
+
+.headerDiv{
+    text-align: center;
+
+}
+
+.mainContentRev {
+    font-size: 22px;
+
+}
+
+.revisionInfoDiv {
+    margin: 0 auto;       /* Центриране по хоризонтала */
+    display: flex;        /* Използване на flex */
+    justify-content: center; /* Центрира по хоризонтала вътре в контейнера */
+    align-items: center;  /* Центрира по вертикала вътре в контейнера */
+}

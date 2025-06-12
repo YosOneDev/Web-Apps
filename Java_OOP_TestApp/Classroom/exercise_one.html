@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/main_page.css">
+    <link rel="stylesheet" href="../Css/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Упражнение 1</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+            <nav>
+                <a href="../index.html" class="nav-link"><span class="icon">🏠</span> Home</a>
+                <!-- Добави бутон за смяна на темата -->
+                <!-- Dropdown Menu for "Prеговор" -->
+                <div class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"><span class="icon">🔽</span> Теми</a>
+                    <div class="dropdown-menu">
+                        <a href="exercise_one.html" class="dropdown-item">Упражнение 1</a>
+                        <a href="exercise_two.html" class="dropdown-item">Упражнение 2</a>
+                        <a href="exercise_three.html" class="dropdown-item">Упражнение 3</a>
+                        <a href="exercise_four.html" class="dropdown-item">Упражнение 4</a>
+                        <a href="exercise_five.html" class="dropdown-item">Упражнение 5</a>
+                        <!-- <a href="#" class="dropdown-item">Упражнение 6</a>
+                        <a href="#" class="dropdown-item">Упражнение 7</a>
+                        <a href="#" class="dropdown-item">Упражнение 8</a>
+                        <a href="#" class="dropdown-item">Упражнение 9</a>
+                        <a href="#" class="dropdown-item">Упражнение 10</a> -->
+                    </div>
+
+                </div>
+
+                <button id="theme-toggle" class="theme-toggle-btn">🌙</button>
+                <a href="../about.html" class="nav-link" id="about-link"><span class="icon">ℹ️</span> About</a>
+            </nav>
+
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <button id="toggle-menu" class="toggle-btn">☰</button>
+
+            <h1 style="text-align: center;">Упражнение № 1</h1>
+
+            <hr class="dottedBorder"
+                style="border-style: dotted; width: 100px; border-top-width: 20px; border-left-width: 0px; border-bottom-width: 0px; border-right-width: 0px; margin-top: 5%;">
+
+            <div class="revisionInfoDiv" style="width: 70%;">
+
+                <span class="mainContentRev">
+
+                    <h2 style="text-align: center; margin-bottom: 80px;"> Преговор</h2>
+                    <ul>
+                        <li>
+                            <b> Синтаксис -> </b> Java има строго дефиниран синтаксис. Програмите в Java започват с
+                            класове и методи.
+                        </li>
+
+                        <br>
+
+                        <li>
+                            <b> Типове данни -> </b> Java има примитивни типове данни (например int, double, char,
+                            boolean) и обектни типове (например класове като String, ArrayList).
+                        </li>
+
+                        <br>
+
+                        <li>
+                            <b> Оператори -> </b> В Java има различни видове оператори, които можем да групираме в
+                            няколко категории.
+                            <ol>
+                                <br>
+                                <li>
+                                    <b> Аритметични оператори: </b>
+                                    <ul>
+                                        <li>+</li>
+                                        <li>-</li>
+                                        <li>*</li>
+                                        <li>/</li>
+                                        <li>%</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    <b> Оператори за присвояване: </b>
+                                    <ul>
+                                        <li>=</li>
+                                        <li>+=</li>
+                                        <li>-=</li>
+                                        <li>*=</li>
+                                        <li>/=</li>
+                                        <li>%=</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    <b> Оператори за сравнение: </b>
+                                    <ul>
+                                        <li>==</li>
+                                        <li>!=</li>
+                                        <li>></li>
+                                        <li>
+                                            << /li>
+                                        <li>>=</li>
+                                        <li>
+                                            <=< /li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    <b> Логически оператори: </b>
+                                    <ul>
+                                        <li>&&</li>
+                                        <li>||</li>
+                                        <li>!</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    <b> Оператори за инкрементация и декрементация: <br> </b>
+                                    Те увеличават или намаляват стойността на променлива с 1
+                                    <ul>
+                                        <br>
+                                        <li>++: инкремент (увеличаване с 1)</li>
+                                        <li>--: декремент (намаляване с 1)</li>
+                                    </ul>
+                                    <br>
+                                    Има два типа използване:
+                                    <ul>
+                                        <br>
+                                        <li>Префиксна форма: ++a или --a — първо се променя стойността на променливата и
+                                            после се използва.</li>
+                                        <li>Постфиксна форма: a++ или a-- — първо се използва стойността на променливата
+                                            и после тя се променя.</li>
+                                    </ul>
+                                </li>
+                                <br>
+                                <li>
+                                    <b> Оператори за условно изпълнение <b>(Тернарен оператор):</b> <br></b>
+                                    Това е кратка форма на условния if-else израз.
+                                    <ul>
+                                        <br>
+                                        <li>Формат: условие ? израз1 : израз2;</li>
+                                        <li>Ако условието е вярно, се изпълнява израз1, ако е лъжа, се изпълнява израз2.
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            <br>
+                        <li>
+                            <b> Условни конструкции: </b>
+                            <ul>
+                                <li>if</li>
+                                <li>if-else</li>
+                                <li>if-else if-else</li>
+                                <li>switch</li>
+                                <li>Тернарен оператор</li>
+                            </ul>
+                        </li>
+                        <br>
+                        <li>
+                            <b> Цикли с пред, пост условие и цикли с брояч: </b>
+                            <ul>
+                                <li>while</li>
+                                <li>do-while</li>
+                                <li>for</li>
+                            </ul>
+                        </li>
+                        <br>
+                        <li>
+                            <b> Масиви: </b>
+                            <ul>
+                                <li>Едномерен масив</li>
+                                <li>Многомерен масив</li>
+                                <li>Работа с едномерни и многомерни масиви</li>
+                                <br>
+                                <b>Сортиране и търсене в едномерен масив</b>
+                                <ul>
+                                    <li>linear</li>
+                                    <li>binary</li>
+                                </ul>
+                            </ul>
+                        </li>
+                        </li>
+                    </ul>
+
+                </span>
+            </div>
+
+            <div style="height: 200px;"></div>
+
+        </div>
+    </div>
+
+    <script src="../Scripts/sidebar.js"></script>
+    <script src="../Scripts/themeSwitcher.js"></script>
+</body>
+
+</html>

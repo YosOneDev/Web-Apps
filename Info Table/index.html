@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма и Таблица</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .form-container label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .form-container input {
+            margin-top: 5px;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 1000px;
+            border-collapse: collapse;
+            margin-left: 400px;
+            margin-top: -100px; 
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: left;
+        }
+
+        th {
+            cursor: pointer;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        th span {
+            font-size: 12px;
+            position: absolute;
+            right: 10px;
+        }
+
+        th.sorted-asc span::after {
+            content: '^';
+        }
+
+        th.sorted-desc span::after {
+            content: 'v';
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            border: none;
+            cursor: pointer;
+            background: none;
+        }
+
+        .edit-button {
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        .delete-button {
+            color: red;
+            font-size: 18px;
+        }
+
+        .save-button {
+            color: green;
+            font-size: 18px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 100px;
+            }
+
+            .form-container {
+                width: 90%;
+                max-width: 700px;
+                margin-bottom: 20px;
+            }
+
+            table {
+                width: 90%;
+                margin-left: 0;
+                overflow-x: auto;
+                max-width: 500px;
+            }
+
+            th, td {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .form-container button {
+                width: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-container">
+            <label for="name">Име</label>
+            <input type="text" id="name" placeholder="Въведете име">
+    
+            <label for="phone">Телефон</label>
+            <input type="text" id="phone" placeholder="Въведете телефонен номер">
+    
+            <label for="year">Години</label>
+            <input type="text" id="year" placeholder="Въведете година">
+    
+            <button onclick="addRow()">Добави в таблицата</button>
+            
+            <div id="error-message" class="error-message"></div>
+        </div>
+    
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">№ <span></span></th>
+                    <th onclick="sortTable(1)">Име <span></span></th>
+                    <th onclick="sortTable(2)">Телефон <span></span></th>
+                    <th onclick="sortTable(3)">Години <span></span></th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        let userCount = 0;
+        let sortDirections = [true, true, true, true];
+    
+        function addRow() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const year = document.getElementById('year').value.trim();
+    
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = '';
+    
+            let errors = [];
+    
+            // Валидиране на името
+            if (!/^[a-zA-Zа-яА-Я\s]+$/.test(name) || name === "") {
+                errors.push('Името трябва да съдържа само букви и интервали.');
+            }
+    
+            // Валидиране на телефона (само цифри, дължина 10)
+            if (!/^\d{10}$/.test(phone)) {
+                errors.push('Телефонният номер трябва да съдържа точно 10 цифри.');
+            }
+    
+            // Валидиране на годините (число между 0 и 120)
+            if (!/^\d+$/.test(year) || parseInt(year) < 0 || parseInt(year) > 120) {
+                errors.push('Годините трябва да са число между 0 и 120.');
+            }
+    
+            // Проверка за дублиращ се телефон
+            const tableRows = document.querySelectorAll('#data-table tbody tr');
+            const phoneExists = Array.from(tableRows).some(row => row.cells[2].textContent.trim() === phone);
+    
+            if (phoneExists) {
+                errors.push('Телефонният номер вече съществува.');
+            }
+    
+            if (errors.length > 0) {
+                errorMessage.textContent = errors.join(' ');
+                return;
+            }
+    
+            const tableBody = document.querySelector('#data-table tbody');
+            const newRow = document.createElement('tr');
+    
+            userCount++;
+    
+            newRow.innerHTML = `
+                <td></td>
+                <td>${name}</td>
+                <td>${phone}</td>
+                <td>${year}</td>
+                <td class="action-buttons">
+                    <button class="edit-button" onclick="editRow(this)">✏️</button>
+                    <button class="delete-button" onclick="deleteRow(this)">❌</button>
+                </td>
+            `;
+    
+            tableBody.appendChild(newRow);
+    
+            updateRowNumbers();
+    
+            document.getElementById('name').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('year').value = '';
+        }
+    
+        function updateRowNumbers() {
+            const rows = document.querySelectorAll('#data-table tbody tr');
+            rows.forEach((row, index) => {
+                row.cells[0].textContent = index + 1;
+            });
+        }
+    
+        function sortTable(columnIndex) {
+            const table = document.getElementById('data-table');
+            const rows = Array.from(table.tBodies[0].rows);
+            const ascending = sortDirections[columnIndex];
+    
+            rows.sort((rowA, rowB) => {
+                const cellA = rowA.cells[columnIndex].textContent.trim();
+                const cellB = rowB.cells[columnIndex].textContent.trim();
+    
+                if (columnIndex === 3 || columnIndex === 0) {
+                    return ascending ? parseInt(cellA) - parseInt(cellB) : parseInt(cellB) - parseInt(cellA);
+                }
+    
+                return ascending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+            });
+    
+            rows.forEach(row => table.tBodies[0].appendChild(row));
+            sortDirections[columnIndex] = !ascending;
+    
+            updateRowNumbers(); // Подновява номерацията след сортиране
+            updateSortIndicators(columnIndex);
+        }
+    
+        function updateSortIndicators(columnIndex) {
+            const headers = document.querySelectorAll('th');
+            headers.forEach((header, index) => {
+                header.classList.remove('sorted-asc', 'sorted-desc');
+                if (index === columnIndex) {
+                    header.classList.add(sortDirections[index] ? 'sorted-asc' : 'sorted-desc');
+                }
+            });
+        }
+    
+        function editRow(button) {
+            const row = button.closest('tr');
+            const cells = row.querySelectorAll('td:not(.action-buttons)');
+    
+            cells.forEach((cell, index) => {
+                if (index > 0) {
+                    const value = cell.textContent.trim();
+                    cell.innerHTML = `<input type="text" value="${value}">`;
+                }
+            });
+    
+            row.querySelector('.action-buttons').innerHTML = `
+                <button class="save-button" onclick="saveRow(this)">💾</button>
+                <button class="delete-button" onclick="deleteRow(this)">❌</button>
+            `;
+        }
+    
+        function saveRow(button) {
+            const row = button.closest('tr');
+            const inputs = row.querySelectorAll('input');
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = '';
+    
+            let isValid = true;
+    
+            inputs.forEach((input, index) => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.border = '1px solid red';
+                } else {
+                    input.style.border = '';
+                    row.cells[index + 1].textContent = input.value.trim();
+                }
+            });
+    
+            if (isValid) {
+                row.querySelector('.action-buttons').innerHTML = `
+                    <button class="edit-button" onclick="editRow(this)">✏️</button>
+                    <button class="delete-button" onclick="deleteRow(this)">❌</button>
+                `;
+            } else {
+                errorMessage.textContent = 'Моля, попълнете всички полета коректно.';
+            }
+        }
+    
+        function deleteRow(button) {
+            button.closest('tr').remove();
+            updateRowNumbers(); // Обновява номерацията след изтриване
+        }
+    </script>
+    
+    </body>
+    </html>

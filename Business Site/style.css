@@ -1,0 +1,360 @@
+body{
+    background-color: #1F2833;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+  margin: 0;
+  padding: 0;
+
+}
+
+#yosTech{
+    color: #45A29E;
+    margin-left: 90px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #0B0C10;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+  }
+  
+  .navbar a {
+    float: left;
+    display: block;
+    color: #C5C6C7;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+  .navbar a:hover {
+    background: #1F2833;
+    color: #66FCF1;
+    text-decoration: underline;
+  }
+  
+
+  .main {
+    margin-top: 30px;
+  }
+
+  #headerForm{
+    margin-top: 0px;
+    padding-top: 70px;
+    text-align: center;
+  }
+  #orderFormDiv{
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    width: 70%;
+    background-color: #243642;
+  }
+  #orderForm{
+    font-size: 20px;
+    color: #66FCF1;
+    padding-left: 30%;
+  }
+  #reviewDiv{
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    width: 70%;
+    background-color: #243642;
+  }
+  #reviewForm{
+    font-size: 20px;
+    color: #66FCF1;
+    padding-left: 30%;
+  }
+  #headerReview{
+    margin-top: 0px;
+    padding-top: 70px;
+    text-align: center;
+  }
+
+  .logo{
+    top: 4px;
+    display: flex;
+    align-items: center;
+    width: 180px;
+    height: 170px;
+    position: absolute;
+  }
+  .dropbtn {
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    padding: 20px 20px;
+    font-size: 22px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .dropdown {
+    position: inherit;
+    float: left;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    color: #C5C6C7;
+    width: 133px;
+    height: 51px;
+    z-index: 11;
+  }
+  .dropdown-content a {
+    background-color: #0B0C10;
+    border: #66FCF1;
+    border-style: inset;
+    color:#45A29E;
+    padding: 20px 20px;
+    width: 110px;
+    height: 51px;
+    color: #C5C6C7;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {
+    background: #1F2833;
+    color: #66FCF1;
+    text-decoration: underline;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .dropdown:hover .dropbtn {
+    background: #1F2833;
+    color: #66FCF1;
+    text-decoration: underline;
+  }
+  #newsDiv{
+    height: 180vh;
+    width: 70%;
+    background-color: #243642;
+    margin-left: 15%; 
+    margin-right: 15%;
+    align-items: center;
+    text-align: center;
+  }
+  #news1{
+    color: #A594F9;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+    width: 50%;
+    border: 3px solid rgb(34, 15, 7);
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 22px;
+    background-color: #E5D9F2;
+  }
+  #news2{
+    color: #1A1A19;
+    text-align: left;
+    font-family: "Anton", sans-serif;
+    border: 3px solid rgb(34, 15, 7);
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 28px;
+    margin-top: 5%;
+    background: #C4E1F6;
+  }
+  #news3{
+    color: #347928;
+    font-family: "Modak", system-ui;
+    text-align: left;
+    border: 3px solid rgb(34, 15, 7);
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 32px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    background-color: #EEEEEE;
+  }
+  .sidebar{
+    height: 210vh;
+    width: 120px;
+    position: absolute;
+    z-index: 1;
+    top: 5;
+    left: 0;
+    background-color: #0B0C10;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #C5C6C7;
+    display: block;
+    font-family: "Poppins", sans-serif;
+  }
+  .gallery{
+    display: inline;
+    height: 300px;
+    border: 1px solid #66FCF1;
+    margin: 1%;
+    border-radius: 5%;
+    margin-bottom: 5%;
+  }
+  #imageOne:hover{
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+  #imageTwo:hover{
+    transform: scale(1.1);
+    filter: brightness(30%);
+  }
+  #imageThree:hover{
+    transform: scale(1.1);
+    filter: grayscale(100%);
+  }
+.slideshow{
+  margin-top: 5%;
+  width: 50%;
+  height: 50vh;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  border: 4px solid #45A29E;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.slide{
+  position: absolute;
+  height: 100%;
+  opacity: 0;
+  inset: 0;
+  animation: slide-show 12s infinite;
+}
+.slide-2{
+  animation-delay: 4s;
+}
+.slide-3{
+  animation-delay: 8s;
+}
+.slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+#dotCorrect{
+  border-top: 20px dotted #66FCF1;
+  border-bottom: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  width: 70%;
+}
+.ad-box {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 250px;
+  padding: 15px;
+  background-color: #1E3E62;
+  color: #FF6500;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.ad-box h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.ad-box p {
+  font-size: 20px;
+}
+
+
+.promo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.promo-image {
+  width: 300px; /* Регулирай според нуждите */
+  height: auto;
+}
+
+.promo-ribbon {
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  background: red;
+  color: white;
+  padding: 5px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transform: rotate(45deg);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.eu-circle {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  border-radius: 50%;
+  position: relative;
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.star {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  opacity: 1;
+  animation: moveStars 5s infinite forwards;
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(400px, 0); /* Звездите ще се преместят към края на екрана */
+    opacity: 0; /* Звездите ще избледняват докато отлитат */
+  }
+}
+
+
+
+@keyframes slide-show{
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  20%,30%{
+    opacity: 1;
+    scale: 1.03;
+  }
+  50%{
+    opacity: 0;
+  }
+}
