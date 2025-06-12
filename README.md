@@ -11,7 +11,7 @@ This repository contains a collection of small web projects I have created while
 - [**Business Calculator**](https://yosonedev.github.io/Web-Apps/Business%20Calculator/) – Calculates taxes and net profit  
 - [**Business Site**](https://yosonedev.github.io/Web-Apps/Business%20Site/) – A demo business site for a company  
 - [**Info Table**](https://yosonedev.github.io/Web-Apps/Info%20Table/) – Table where you can add people and information about them  
-- [**Java Test App**](https://yosonedev.github.io/Web-Apps/Java%20Test%20App/) – Website where you can learn about Java OOP and practice on randomized tests  
+- [**Java Test App**](https://yosonedev.github.io/Web-Apps/Java_OOP_TestApp/) – Website where you can learn about Java OOP and practice on randomized tests  
 - [**Game App**](https://yosonedev.github.io/Web-Apps/Game%20App/) – Website with 6 games
 
 ## 🧠 Technologies Used
